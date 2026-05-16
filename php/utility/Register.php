@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// IpAddressLookupTwo SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+IpAddressLookupTwoUtility::setRegistrar(function (IpAddressLookupTwoUtility $u): void {
+    $u->clean = [IpAddressLookupTwoClean::class, 'call'];
+    $u->done = [IpAddressLookupTwoDone::class, 'call'];
+    $u->make_error = [IpAddressLookupTwoMakeError::class, 'call'];
+    $u->feature_add = [IpAddressLookupTwoFeatureAdd::class, 'call'];
+    $u->feature_hook = [IpAddressLookupTwoFeatureHook::class, 'call'];
+    $u->feature_init = [IpAddressLookupTwoFeatureInit::class, 'call'];
+    $u->fetcher = [IpAddressLookupTwoFetcher::class, 'call'];
+    $u->make_fetch_def = [IpAddressLookupTwoMakeFetchDef::class, 'call'];
+    $u->make_context = [IpAddressLookupTwoMakeContext::class, 'call'];
+    $u->make_options = [IpAddressLookupTwoMakeOptions::class, 'call'];
+    $u->make_request = [IpAddressLookupTwoMakeRequest::class, 'call'];
+    $u->make_response = [IpAddressLookupTwoMakeResponse::class, 'call'];
+    $u->make_result = [IpAddressLookupTwoMakeResult::class, 'call'];
+    $u->make_point = [IpAddressLookupTwoMakePoint::class, 'call'];
+    $u->make_spec = [IpAddressLookupTwoMakeSpec::class, 'call'];
+    $u->make_url = [IpAddressLookupTwoMakeUrl::class, 'call'];
+    $u->param = [IpAddressLookupTwoParam::class, 'call'];
+    $u->prepare_auth = [IpAddressLookupTwoPrepareAuth::class, 'call'];
+    $u->prepare_body = [IpAddressLookupTwoPrepareBody::class, 'call'];
+    $u->prepare_headers = [IpAddressLookupTwoPrepareHeaders::class, 'call'];
+    $u->prepare_method = [IpAddressLookupTwoPrepareMethod::class, 'call'];
+    $u->prepare_params = [IpAddressLookupTwoPrepareParams::class, 'call'];
+    $u->prepare_path = [IpAddressLookupTwoPreparePath::class, 'call'];
+    $u->prepare_query = [IpAddressLookupTwoPrepareQuery::class, 'call'];
+    $u->result_basic = [IpAddressLookupTwoResultBasic::class, 'call'];
+    $u->result_body = [IpAddressLookupTwoResultBody::class, 'call'];
+    $u->result_headers = [IpAddressLookupTwoResultHeaders::class, 'call'];
+    $u->transform_request = [IpAddressLookupTwoTransformRequest::class, 'call'];
+    $u->transform_response = [IpAddressLookupTwoTransformResponse::class, 'call'];
+});

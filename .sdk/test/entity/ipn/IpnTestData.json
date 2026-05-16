@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "ipn": {
+      "IPN00": {
+        "asn": "s6e",
+        "city": "s6f",
+        "country": "s70",
+        "country_code": "s71",
+        "ip": "s72",
+        "isp": "s73",
+        "latitude": 116,
+        "longitude": 117,
+        "organization": "s76",
+        "region": "s77",
+        "timezone": "s78",
+        "id": "IPN00"
+      },
+      "IPN01": {
+        "asn": "sdc",
+        "city": "sdd",
+        "country": "sde",
+        "country_code": "sdf",
+        "ip": "se0",
+        "isp": "se1",
+        "latitude": 226,
+        "longitude": 227,
+        "organization": "se4",
+        "region": "se5",
+        "timezone": "se6",
+        "id": "IPN01"
+      },
+      "IPN02": {
+        "asn": "s14a",
+        "city": "s14b",
+        "country": "s14c",
+        "country_code": "s14d",
+        "ip": "s14e",
+        "isp": "s14f",
+        "latitude": 336,
+        "longitude": 337,
+        "organization": "s152",
+        "region": "s153",
+        "timezone": "s154",
+        "id": "IPN02"
+      }
+    }
+  },
+  "new": {
+    "ipn": {
+      "ipn_ref01": {
+        "asn": "s1b8",
+        "city": "s1b9",
+        "country": "s1ba",
+        "country_code": "s1bb",
+        "ip": "s1bc",
+        "isp": "s1bd",
+        "latitude": 446,
+        "longitude": 447,
+        "organization": "s1c0",
+        "region": "s1c1",
+        "timezone": "s1c2"
+      }
+    }
+  }
+}

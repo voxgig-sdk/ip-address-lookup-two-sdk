@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Documentation"
+        url: "https://github.com/l0v3m0n3y/IPSB"
+      }
+      description: "The IPSB API allows you to perform IP address lookups for both IPv4 and IPv6 addresses. It provides detailed information such as location, ISP, and other related data for any given IP address."
+      servers: [
+        {
+          description: "IP.SB API Server"
+          url: "https://api.ip.sb"
+        }
+      ]
+      title: "IP Address Lookup API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

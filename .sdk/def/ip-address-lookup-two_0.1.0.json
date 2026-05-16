@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Address Lookup API",
+    "description": "The IPSB API allows you to perform IP address lookups for both IPv4 and IPv6 addresses. It provides detailed information such as location, ISP, and other related data for any given IP address.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Documentation",
+      "url": "https://github.com/l0v3m0n3y/IPSB"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.ip.sb",
+      "description": "IP.SB API Server"
+    }
+  ],
+  "paths": {
+    "/ip": {
+      "get": {
+        "summary": "Get IP address information",
+        "description": "Returns detailed information about the requesting client's IP address or a specified IP address, including location, ISP, and other related data. Supports both IPv4 and IPv6 addresses.",
+        "operationId": "getIpInfo",
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "description": "The IP address to lookup (IPv4 or IPv6). If not provided, returns information about the requesting client's IP address.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "8.8.8.8"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with IP address information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "description": "The IP address",
+                      "example": "8.8.8.8"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "Country name",
+                      "example": "United States"
+                    },
+                    "country_code": {
+                      "type": "string",
+                      "description": "ISO country code",
+                      "example": "US"
+                    },
+                    "region": {
+                      "type": "string",
+                      "description": "Region or state",
+                      "example": "California"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "City name",
+                      "example": "Mountain View"
+                    },
+                    "latitude": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Latitude coordinate",
+                      "example": 37.386
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Longitude coordinate",
+                      "example": -122.0838
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone identifier",
+                      "example": "America/Los_Angeles"
+                    },
+                    "isp": {
+                      "type": "string",
+                      "description": "Internet Service Provider",
+                      "example": "Google LLC"
+                    },
+                    "organization": {
+                      "type": "string",
+                      "description": "Organization name",
+                      "example": "Google LLC"
+                    },
+                    "asn": {
+                      "type": "string",
+                      "description": "Autonomous System Number",
+                      "example": "AS15169"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid IP address format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Invalid IP address format"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "IP address not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "IP address not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Rate limit exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "IP Lookup"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Lookup",
+      "description": "Operations for looking up IP address information"
+    }
+  ]
+}
