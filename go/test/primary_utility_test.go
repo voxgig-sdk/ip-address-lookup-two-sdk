@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk"
+	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

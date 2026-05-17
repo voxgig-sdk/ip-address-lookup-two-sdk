@@ -1,9 +1,9 @@
 package utility
 
 import (
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/core"
+	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/core"
 )
 
 const headerAuth = "authorization"

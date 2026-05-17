@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/ip-address-lookup-two-sdk/core"
+import "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk"
-	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/core"
+	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go"
+	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/core"
 )
 
 func TestIpnDirect(t *testing.T) {

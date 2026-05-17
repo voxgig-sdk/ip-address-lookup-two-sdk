@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk"
-	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/core"
+	sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go"
+	"github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go/utility/struct"
 )
 
 func TestIpnEntity(t *testing.T) {
