@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'IPADDRESSLOOKUPTWO_TEST_IPN_ENTID': {},
     'IPADDRESSLOOKUPTWO_TEST_LIVE': 'FALSE',
-    'IPADDRESSLOOKUPTWO_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.IPADDRESSLOOKUPTWO_TEST_LIVE
 
   if (live) {
     const client = new IpAddressLookupTwoSDK({
-      apikey: env.IPADDRESSLOOKUPTWO_APIKEY,
     })
 
     let idmap: any = env['IPADDRESSLOOKUPTWO_TEST_IPN_ENTID']

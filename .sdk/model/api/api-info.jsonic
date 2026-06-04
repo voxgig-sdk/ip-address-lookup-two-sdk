@@ -17,8 +17,28 @@ main: {
       ]
       title: "IP Address Lookup API"
       version: "1.0.0"
+      tagline: "Look up IPv4/IPv6 addresses and resolve them to location, ASN, and ISP details"
+      homepage: "https://ip.sb/"
+      docs_url: "https://ip.sb/api/"
+      license_short: "Free public service; GeoIP data by MaxMind GeoLite (attribution required)"
+      license_md: `- Operated by SB Professional Services, LLC as a free public service
+- Includes GeoLite data created by MaxMind, available from [maxmind.com](https://www.maxmind.com) — attribution required when redistributing geolocation results
+- API source derives from the open-source [Telize](https://github.com/fcambus/telize) project
+- No published rate limits or terms; treat as best-effort and avoid abusive usage`
+      about_md: `IP.SB is a free REST API that returns the caller's public IP address and resolves any IPv4 or IPv6 address to geolocation and network metadata. It is operated by [SB Professional Services, LLC](https://ip.sb/) alongside related services such as DNS.SB.
+
+What you get from the API:
+
+- Plain-text or JSON echo of the visitor's IP (\`/ip\`, \`/jsonip\`)
+- Geolocation lookup for the visitor or any supplied IP (\`/geoip\`, \`/geoip/{ip}\`)
+- Fields returned by GeoIP include country code and name, region code and name, city, postal code, continent code, latitude, longitude, timezone, ASN, and ISP organization
+- Dual IPv4/IPv6 endpoint variants and JSONP callback support
+
+No API key or authentication is required and CORS is enabled. Geolocation is powered by MaxMind GeoLite data, so accuracy is approximate — especially at the city level. Invalid input IPs return HTTP 400 with a JSON error message.`
+      entity_desc: {
+        ipn: "An IP address record carrying geolocation and network attributes (country, region, city, postal code, latitude/longitude, timezone, ASN, ISP); served from `/jsonip`, `/geoip`, and `/geoip/{ip}`."
+      }
+      auth: false
     }
   }
-}
-
 }

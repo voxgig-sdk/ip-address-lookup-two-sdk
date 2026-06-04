@@ -23,12 +23,9 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
 
-client = IpAddressLookupTwoSDK({
-    "apikey": os.environ.get("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
-})
+client = IpAddressLookupTwoSDK({})
 ```
 
 ### 3. Load a ipn
@@ -117,7 +114,6 @@ Create a `.env.local` file at the project root:
 
 ```
 IP-ADDRESS-LOOKUP-TWO_TEST_LIVE=TRUE
-IP-ADDRESS-LOOKUP-TWO_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,7 +137,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

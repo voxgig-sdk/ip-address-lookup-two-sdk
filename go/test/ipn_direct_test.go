@@ -99,14 +99,12 @@ func ipnDirectSetup(mockres any) *ipnDirectSetupResult {
 	env := envOverride(map[string]any{
 		"IPADDRESSLOOKUPTWO_TEST_IPN_ENTID": map[string]any{},
 		"IPADDRESSLOOKUPTWO_TEST_LIVE":    "FALSE",
-		"IPADDRESSLOOKUPTWO_APIKEY":       "NONE",
 	})
 
 	live := env["IPADDRESSLOOKUPTWO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["IPADDRESSLOOKUPTWO_APIKEY"],
 		}
 		client := sdk.NewIpAddressLookupTwoSDK(mergedOpts)
 
