@@ -117,6 +117,7 @@ func ipnBasicSetup(extra map[string]any) *entityTestSetup {
 		"IPADDRESSLOOKUPTWO_TEST_IPN_ENTID": idmap,
 		"IPADDRESSLOOKUPTWO_TEST_LIVE":      "FALSE",
 		"IPADDRESSLOOKUPTWO_TEST_EXPLAIN":   "FALSE",
+		"IPADDRESSLOOKUPTWO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["IPADDRESSLOOKUPTWO_TEST_IPN_ENTID"])
@@ -127,6 +128,7 @@ func ipnBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["IPADDRESSLOOKUPTWO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["IPADDRESSLOOKUPTWO_APIKEY"],
 			},
 			extra,
 		})

@@ -59,12 +59,14 @@ def _ipn_direct_setup(mockres):
     env = runner.env_override({
         "IPADDRESSLOOKUPTWO_TEST_IPN_ENTID": {},
         "IPADDRESSLOOKUPTWO_TEST_LIVE": "FALSE",
+        "IPADDRESSLOOKUPTWO_APIKEY": "NONE",
     })
 
     live = env.get("IPADDRESSLOOKUPTWO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("IPADDRESSLOOKUPTWO_APIKEY"),
         }
         client = IpAddressLookupTwoSDK(merged_opts)
         return {

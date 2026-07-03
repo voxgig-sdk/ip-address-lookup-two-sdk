@@ -91,6 +91,7 @@ function ipn_basic_setup(extra)
     ["IPADDRESSLOOKUPTWO_TEST_IPN_ENTID"] = idmap,
     ["IPADDRESSLOOKUPTWO_TEST_LIVE"] = "FALSE",
     ["IPADDRESSLOOKUPTWO_TEST_EXPLAIN"] = "FALSE",
+    ["IPADDRESSLOOKUPTWO_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function ipn_basic_setup(extra)
   if env["IPADDRESSLOOKUPTWO_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["IPADDRESSLOOKUPTWO_APIKEY"],
       },
       extra or {},
     })

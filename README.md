@@ -1,21 +1,8 @@
 # IpAddressLookupTwo SDK
 
-Look up IPv4/IPv6 addresses and resolve them to location, ASN, and ISP details
+IP Address Lookup API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About IP Address Lookup API
-
-IP.SB is a free REST API that returns the caller's public IP address and resolves any IPv4 or IPv6 address to geolocation and network metadata. It is operated by [SB Professional Services, LLC](https://ip.sb/) alongside related services such as DNS.SB.
-
-What you get from the API:
-
-- Plain-text or JSON echo of the visitor's IP (`/ip`, `/jsonip`)
-- Geolocation lookup for the visitor or any supplied IP (`/geoip`, `/geoip/{ip}`)
-- Fields returned by GeoIP include country code and name, region code and name, city, postal code, continent code, latitude, longitude, timezone, ASN, and ISP organization
-- Dual IPv4/IPv6 endpoint variants and JSONP callback support
-
-No API key or authentication is required and CORS is enabled. Geolocation is powered by MaxMind GeoLite data, so accuracy is approximate — especially at the city level. Invalid input IPs return HTTP 400 with a JSON error message.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install ip-address-lookup-two-sdk
 luarocks install ip-address-lookup-two-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { IpAddressLookupTwoSDK } from 'ip-address-lookup-two'
 
-const client = new IpAddressLookupTwoSDK({})
+const client = new IpAddressLookupTwoSDK({
+  apikey: process.env.IP-ADDRESS-LOOKUP-TWO_APIKEY,
+})
 
+// Load ipn data
+const ipn = await client.Ipn().load({})
+console.log(ipn.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Ipn** | An IP address record carrying geolocation and network attributes (country, region, city, postal code, latitude/longitude, timezone, ASN, ISP); served from `/jsonip`, `/geoip`, and `/geoip/{ip}`. | `/ip` |
+| **Ipn** |  | `/ip` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
 
-client = IpAddressLookupTwoSDK({})
+client = IpAddressLookupTwoSDK({
+    "apikey": os.environ.get("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
+})
 
 
 # Load a specific ipn
-ipn, err = client.Ipn(None).load(
-    {"id": "example_id"}, None
-)
+ipn, err = client.Ipn().load({"id": "example_id"})
+print(ipn)
 ```
 
 ### PHP
@@ -126,13 +119,14 @@ ipn, err = client.Ipn(None).load(
 <?php
 require_once 'ipaddresslookuptwo_sdk.php';
 
-$client = new IpAddressLookupTwoSDK([]);
+$client = new IpAddressLookupTwoSDK([
+    "apikey" => getenv("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
+]);
 
 
 // Load a specific ipn
-[$ipn, $err] = $client->Ipn(null)->load(
-    ["id" => "example_id"], null
-);
+[$ipn, $err] = $client->Ipn()->load(["id" => "example_id"]);
+print_r($ipn);
 ```
 
 ### Golang
@@ -140,8 +134,13 @@ $client = new IpAddressLookupTwoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/ip-address-lookup-two-sdk/go"
 
-client := sdk.NewIpAddressLookupTwoSDK(map[string]any{})
+client := sdk.NewIpAddressLookupTwoSDK(map[string]any{
+    "apikey": os.Getenv("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
+})
 
+// Load ipn data
+ipn, err := client.Ipn(nil).Load(map[string]any{}, nil)
+fmt.Println(ipn)
 ```
 
 ### Ruby
@@ -149,13 +148,14 @@ client := sdk.NewIpAddressLookupTwoSDK(map[string]any{})
 ```ruby
 require_relative "IpAddressLookupTwo_sdk"
 
-client = IpAddressLookupTwoSDK.new({})
+client = IpAddressLookupTwoSDK.new({
+  "apikey" => ENV["IP-ADDRESS-LOOKUP-TWO_APIKEY"],
+})
 
 
 # Load a specific ipn
-ipn, err = client.Ipn(nil).load(
-  { "id" => "example_id" }, nil
-)
+ipn, err = client.Ipn().load({ "id" => "example_id" })
+puts ipn
 ```
 
 ### Lua
@@ -163,13 +163,14 @@ ipn, err = client.Ipn(nil).load(
 ```lua
 local sdk = require("ip-address-lookup-two_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
+})
 
 
 -- Load a specific ipn
-local ipn, err = client:Ipn(nil):load(
-  { id = "example_id" }, nil
-)
+local ipn, err = client:Ipn():load({ id = "example_id" })
+print(ipn)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +189,21 @@ const result = await client.Ipn().load({ id: 'test01' })
 ### Python
 
 ```python
-client = IpAddressLookupTwoSDK.test(None, None)
-result, err = client.Ipn(None).load(
-    {"id": "test01"}, None
-)
+client = IpAddressLookupTwoSDK.test()
+result, err = client.Ipn().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = IpAddressLookupTwoSDK::test(null, null);
-[$result, $err] = $client->Ipn(null)->load(
-    ["id" => "test01"], null
-);
+$client = IpAddressLookupTwoSDK::test();
+[$result, $err] = $client->Ipn()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Ipn(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +212,15 @@ result, err := client.Ipn(nil).Load(
 ### Ruby
 
 ```ruby
-client = IpAddressLookupTwoSDK.test(nil, nil)
-result, err = client.Ipn(nil).load(
-  { "id" => "test01" }, nil
-)
+client = IpAddressLookupTwoSDK.test
+result, err = client.Ipn().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Ipn(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Ipn():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the IP Address Lookup API
-
-- Upstream: [https://ip.sb/](https://ip.sb/)
-- API docs: [https://ip.sb/api/](https://ip.sb/api/)
-
-- Operated by SB Professional Services, LLC as a free public service
-- Includes GeoLite data created by MaxMind, available from [maxmind.com](https://www.maxmind.com) — attribution required when redistributing geolocation results
-- API source derives from the open-source [Telize](https://github.com/fcambus/telize) project
-- No published rate limits or terms; treat as best-effort and avoid abusive usage
 
 ---
 

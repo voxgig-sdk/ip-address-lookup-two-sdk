@@ -85,6 +85,7 @@ function ipn_basic_setup($extra)
         "IPADDRESSLOOKUPTWO_TEST_IPN_ENTID" => $idmap,
         "IPADDRESSLOOKUPTWO_TEST_LIVE" => "FALSE",
         "IPADDRESSLOOKUPTWO_TEST_EXPLAIN" => "FALSE",
+        "IPADDRESSLOOKUPTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function ipn_basic_setup($extra)
     if ($env["IPADDRESSLOOKUPTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["IPADDRESSLOOKUPTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);
