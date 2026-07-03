@@ -10,7 +10,7 @@ The Python SDK for the IpAddressLookupTwo API — an entity-oriented client foll
 
 ## Install
 ```bash
-pip install ip-address-lookup-two-sdk
+pip install voxgig-sdk-ip-address-lookup-two
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The TypeScript SDK for the IpAddressLookupTwo API — a type-safe, entity-orient
 
 ## Install
 ```bash
-npm install ip-address-lookup-two
+npm install @voxgig-sdk/ip-address-lookup-two
 ```
 ## Tutorial: your first API call
 
