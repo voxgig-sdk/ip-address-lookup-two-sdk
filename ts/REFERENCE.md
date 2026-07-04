@@ -109,7 +109,7 @@ Alias for `IpAddressLookupTwoSDK.test()`.
 ## IpnEntity
 
 ```ts
-const ipn = client.ipn
+const ipn = client.Ipn()
 ```
 
 ### Fields
@@ -135,7 +135,7 @@ const ipn = client.ipn
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ipn.load({ id: 'ipn_id' })
+const result = await client.Ipn().load({ id: 'ipn_id' })
 ```
 
 ### Common Methods

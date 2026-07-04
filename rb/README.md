@@ -32,8 +32,9 @@ client = IpAddressLookupTwoSDK.new
 
 ```ruby
 begin
-  result = client.ipn.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Ipn record (raises on error).
+  ipn = client.Ipn.load({ "id" => "example_id" })
+  puts ipn
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = IpAddressLookupTwoSDK.test
+client = IpAddressLookupTwoSDK.test({
+  "entity" => { "ipn" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.ipn.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+ipn = client.Ipn.load({ "id" => "test01" })
+puts ipn
 ```
 
 ### Use a custom fetch function
@@ -162,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Ipn` | `(data) -> IpnEntity` | Create a Ipn entity instance. |
+| `Ipn` | `(data) -> IpnEntity` | Create an Ipn entity instance. |
 
 ### Entity interface
 
@@ -228,7 +233,7 @@ API path: `/ip`
 
 ### Ipn
 
-Create an instance: `const ipn = client.ipn`
+Create an instance: `ipn = client.Ipn`
 
 #### Operations
 
@@ -254,8 +259,9 @@ Create an instance: `const ipn = client.ipn`
 
 #### Example: Load
 
-```ts
-const ipn = await client.ipn.load({ id: 'ipn_id' })
+```ruby
+# load returns the bare Ipn record (raises on error).
+ipn = client.Ipn.load({ "id" => "ipn_id" })
 ```
 
 
@@ -330,7 +336,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-ipn = client.ipn
+ipn = client.Ipn
 ipn.load({ "id" => "example_id" })
 
 # ipn.data_get now returns the loaded ipn data

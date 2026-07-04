@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## IpnEntity
 
 ```python
-ipn = client.ipn
+ipn = client.Ipn()
 ```
 
 ### Fields
@@ -106,7 +106,7 @@ ipn = client.ipn
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.ipn.load({"id": "ipn_id"})
+result = client.Ipn().load({"id": "ipn_id"})
 ```
 
 ### Common Methods

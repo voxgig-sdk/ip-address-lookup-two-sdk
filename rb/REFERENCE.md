@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## IpnEntity
 
 ```ruby
-ipn = client.ipn
+ipn = client.Ipn
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ ipn = client.ipn
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.ipn.load({ "id" => "ipn_id" })
+result = client.Ipn.load({ "id" => "ipn_id" })
 ```
 
 ### Common Methods

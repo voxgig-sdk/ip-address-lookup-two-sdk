@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## IpnEntity
 
 ```lua
-local ipn = client:ipn(nil)
+local ipn = client:Ipn(nil)
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ local ipn = client:ipn(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ipn():load({ id = "ipn_id" })
+local result, err = client:Ipn():load({ id = "ipn_id" })
 ```
 
 ### Common Methods

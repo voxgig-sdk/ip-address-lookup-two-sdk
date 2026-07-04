@@ -208,13 +208,7 @@ class IpAddressLookupTwoSDK
   end
 
 
-  # Idiomatic facade: client.ipn.list / client.ipn.load({ "id" => ... })
-  def ipn
-    require_relative 'entity/ipn_entity'
-    @ipn ||= IpnEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.ipn instead.
+  # Canonical facade: client.Ipn.list / client.Ipn.load({ "id" => ... })
   def Ipn(data = nil)
     require_relative 'entity/ipn_entity'
     IpnEntity.new(self, data)

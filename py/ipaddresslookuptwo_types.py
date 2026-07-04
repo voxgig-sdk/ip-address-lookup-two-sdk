@@ -4,39 +4,41 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Ipn:
-    asn: Optional[str] = None
-    city: Optional[str] = None
-    country: Optional[str] = None
-    country_code: Optional[str] = None
-    ip: Optional[str] = None
-    isp: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    organization: Optional[str] = None
-    region: Optional[str] = None
-    timezone: Optional[str] = None
+class Ipn(TypedDict, total=False):
+    asn: str
+    city: str
+    country: str
+    country_code: str
+    ip: str
+    isp: str
+    latitude: float
+    longitude: float
+    organization: str
+    region: str
+    timezone: str
 
 
-@dataclass
-class IpnLoadMatch:
-    asn: Optional[str] = None
-    city: Optional[str] = None
-    country: Optional[str] = None
-    country_code: Optional[str] = None
-    ip: Optional[str] = None
-    isp: Optional[str] = None
-    latitude: Optional[float] = None
-    longitude: Optional[float] = None
-    organization: Optional[str] = None
-    region: Optional[str] = None
-    timezone: Optional[str] = None
-
+class IpnLoadMatch(TypedDict, total=False):
+    asn: str
+    city: str
+    country: str
+    country_code: str
+    ip: str
+    isp: str
+    latitude: float
+    longitude: float
+    organization: str
+    region: str
+    timezone: str

@@ -220,25 +220,15 @@ class IpAddressLookupTwoSDK:
         }
 
 
-    @property
-    def ipn(self):
-        """Idiomatic facade: client.ipn.list() / client.ipn.load({"id": ...})."""
-        from entity.ipn_entity import IpnEntity
-        cached = getattr(self, "_ipn", None)
-        if cached is None:
-            cached = IpnEntity(self, None)
-            self._ipn = cached
-        return cached
-
-    def Ipn(self, data=None):
-        # Deprecated: use client.ipn instead.
+    def Ipn(self, data=None) -> "IpnEntity":
+        """Entity factory: client.Ipn().list({}) / client.Ipn().load({"id": ...})."""
         from entity.ipn_entity import IpnEntity
         return IpnEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "IpAddressLookupTwoSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class IpAddressLookupTwoSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.ipn_entity import IpnEntity

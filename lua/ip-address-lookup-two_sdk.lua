@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:ipn():list() / client:ipn():load({ id = ... })
-function IpAddressLookupTwoSDK:ipn(data)
+-- Idiomatic facade: client:Ipn():list() / client:Ipn():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function IpAddressLookupTwoSDK:Ipn(data)
   local EntityMod = require("entity.ipn_entity")
   if data == nil then
     if self._ipn == nil then
@@ -253,12 +254,6 @@ function IpAddressLookupTwoSDK:ipn(data)
     end
     return self._ipn
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:ipn() instead.
-function IpAddressLookupTwoSDK:Ipn(data)
-  local EntityMod = require("entity.ipn_entity")
   return EntityMod.new(self, data)
 end
 

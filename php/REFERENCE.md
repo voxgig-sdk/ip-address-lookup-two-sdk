@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## IpnEntity
 
 ```php
-$ipn = $client->ipn();
+$ipn = $client->Ipn();
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ $ipn = $client->ipn();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->ipn()->load(["id" => "ipn_id"]);
+$result = $client->Ipn()->load(["id" => "ipn_id"]);
 ```
 
 ### Common Methods

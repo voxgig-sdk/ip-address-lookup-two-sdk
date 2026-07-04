@@ -204,14 +204,7 @@ class IpAddressLookupTwoSDK {
 
 
 
-  _ipn?: IpnEntity
-
-  // Idiomatic facade: `client.ipn.list()` / `client.ipn.load({ id })`.
-  get ipn(): IpnEntity {
-    return (this._ipn ??= new IpnEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.ipn` instead. */
+  // Entity access: `client.Ipn().list()` / `client.Ipn().load({ id })`.
   Ipn(data?: any) {
     const self = this
     return new IpnEntity(self,data)

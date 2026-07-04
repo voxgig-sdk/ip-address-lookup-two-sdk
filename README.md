@@ -26,9 +26,9 @@ import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two'
 
 const client = new IpAddressLookupTwoSDK()
 
-// Load ipn data
-const ipn = await client.ipn.load({})
-console.log(ipn.data)
+// Load ipn data (returns a Ipn)
+const ipn = await client.Ipn().load()
+console.log(ipn)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
 client = IpAddressLookupTwoSDK()
 
 
-# Load a specific ipn
-ipn = client.ipn.load({"id": "example_id"})
+# Load a specific ipn (returns the record, raises on error)
+ipn = client.Ipn().load({"id": "example_id"})
 print(ipn)
 ```
 
@@ -98,8 +98,8 @@ require_once 'ipaddresslookuptwo_sdk.php';
 $client = new IpAddressLookupTwoSDK();
 
 
-// Load a specific ipn
-$ipn = $client->ipn()->load(["id" => "example_id"]);
+// Load a specific ipn (returns the bare record; throws on error)
+$ipn = $client->Ipn()->load(["id" => "example_id"]);
 print_r($ipn);
 ```
 
@@ -123,8 +123,8 @@ require_relative "IpAddressLookupTwo_sdk"
 client = IpAddressLookupTwoSDK.new
 
 
-# Load a specific ipn
-ipn = client.ipn.load({ "id" => "example_id" })
+# Load a specific ipn (returns the bare record; raises on error)
+ipn = client.Ipn.load({ "id" => "example_id" })
 puts ipn
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific ipn
-local ipn, err = client:ipn():load({ id = "example_id" })
+local ipn, err = client:Ipn():load({ id = "example_id" })
 print(ipn)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = IpAddressLookupTwoSDK.test()
-const result = await client.ipn.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const ipn = await client.Ipn().load({ id: 'test01' })
+// ipn is a bare Ipn populated with mock data
+console.log(ipn)
 ```
 
 ### Python
 
 ```python
 client = IpAddressLookupTwoSDK.test()
-result = client.ipn.load({"id": "test01"})
+ipn = client.Ipn().load({"id": "test01"})
+print(ipn)
 ```
 
 ### PHP
 
 ```php
-$client = IpAddressLookupTwoSDK::test();
-$result = $client->ipn()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = IpAddressLookupTwoSDK::test([
+    "entity" => ["ipn" => ["test01" => ["id" => "test01"]]],
+]);
+$ipn = $client->Ipn()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Ipn(nil).Load(
 ### Ruby
 
 ```ruby
-client = IpAddressLookupTwoSDK.test
-result = client.ipn.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = IpAddressLookupTwoSDK.test({
+  "entity" => { "ipn" => { "test01" => { "id" => "test01" } } },
+})
+ipn = client.Ipn.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:ipn():load({ id = "test01" })
+local result, err = client:Ipn():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

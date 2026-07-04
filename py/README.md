@@ -33,10 +33,12 @@ client = IpAddressLookupTwoSDK()
 
 ### 3. Load an ipn
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.ipn.load({"id": "example_id"})
-    print(result)
+    ipn = client.Ipn().load({"id": "example_id"})
+    print(ipn)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IpAddressLookupTwoSDK.test()
 
-result = client.ipn.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+ipn = client.Ipn().load({"id": "test01"})
+# ipn contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Ipn` | `(data) -> IpnEntity` | Create a Ipn entity instance. |
+| `Ipn` | `(data) -> IpnEntity` | Create an Ipn entity instance. |
 
 ### Entity interface
 
@@ -228,7 +231,7 @@ API path: `/ip`
 
 ### Ipn
 
-Create an instance: `const ipn = client.ipn`
+Create an instance: `ipn = client.Ipn()`
 
 #### Operations
 
@@ -254,8 +257,8 @@ Create an instance: `const ipn = client.ipn`
 
 #### Example: Load
 
-```ts
-const ipn = await client.ipn.load({ id: 'ipn_id' })
+```python
+ipn = client.Ipn().load({"id": "ipn_id"})
 ```
 
 
@@ -329,7 +332,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-ipn = client.ipn
+ipn = client.Ipn()
 ipn.load({"id": "example_id"})
 
 # ipn.data_get() now returns the loaded ipn data

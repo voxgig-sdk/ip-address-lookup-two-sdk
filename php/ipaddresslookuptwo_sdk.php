@@ -233,10 +233,10 @@ class IpAddressLookupTwoSDK
 
     private $_ipn = null;
 
-    // Idiomatic facade: $client->ipn()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Ipn() (PHP method
-    // names are case-insensitive).
-    public function ipn($data = null)
+    // Canonical facade: $client->Ipn()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->ipn()
+    // resolves here too.
+    public function Ipn($data = null)
     {
         require_once __DIR__ . '/entity/ipn_entity.php';
         if ($data === null) {
