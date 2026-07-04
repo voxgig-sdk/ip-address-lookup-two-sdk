@@ -245,6 +245,9 @@ func (sdk *IpAddressLookupTwoSDK) Direct(fetchargs map[string]any) (map[string]a
 }
 
 
+// Ipn returns a Ipn entity bound to this client.
+// Idiomatic usage: client.Ipn(nil).List(nil, nil) or
+// client.Ipn(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IpAddressLookupTwoSDK) Ipn(data map[string]any) IpAddressLookupTwoEntity {
 	return NewIpnEntityFunc(sdk, data)
 }

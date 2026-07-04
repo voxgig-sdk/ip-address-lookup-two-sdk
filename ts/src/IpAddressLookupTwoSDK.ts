@@ -2,6 +2,8 @@
 
 import { IpnEntity } from './entity/IpnEntity'
 
+export type * from './IpAddressLookupTwoTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class IpAddressLookupTwoSDK {
 
 
 
+  _ipn?: IpnEntity
+
+  // Idiomatic facade: `client.ipn.list()` / `client.ipn.load({ id })`.
+  get ipn(): IpnEntity {
+    return (this._ipn ??= new IpnEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.ipn` instead. */
   Ipn(data?: any) {
     const self = this
     return new IpnEntity(self,data)

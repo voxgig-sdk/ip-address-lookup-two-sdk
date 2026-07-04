@@ -9,11 +9,9 @@ The Python SDK for the IpAddressLookupTwo API — an entity-oriented client foll
 
 
 ## Install
-```bash
-pip install voxgig-sdk-ip-address-lookup-two
-```
-
-Or install from source:
+This package is not yet published to PyPI. Install it from the GitHub
+release tag (`py/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases)) or
+from a source checkout:
 
 ```bash
 pip install -e .
@@ -28,21 +26,19 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
-import os
 from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
 
-client = IpAddressLookupTwoSDK({
-    "apikey": os.environ.get("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
-})
+client = IpAddressLookupTwoSDK()
 ```
 
-### 3. Load a ipn
+### 3. Load an ipn
 
 ```python
-result, err = client.Ipn().load({"id": "example_id"})
-if err:
-    raise Exception(err)
-print(result)
+try:
+    result = client.ipn.load({"id": "example_id"})
+    print(result)
+except Exception as err:
+    print(f"load failed: {err}")
 ```
 
 
@@ -53,29 +49,28 @@ print(result)
 For endpoints not covered by entity methods:
 
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
+else:
+    print(result["err"])     # error value
 ```
 
 ### Prepare a request without sending it
 
 ```python
-fetchdef, err = client.prepare({
+# prepare() returns the fetch definition and raises on error.
+fetchdef = client.prepare({
     "path": "/api/resource/{id}",
     "method": "DELETE",
     "params": {"id": "example"},
 })
-if err:
-    raise Exception(err)
 
 print(fetchdef["url"])
 print(fetchdef["method"])
@@ -89,7 +84,7 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IpAddressLookupTwoSDK.test()
 
-result, err = client.IpAddressLookupTwo().load({"id": "test01"})
+result = client.ipn.load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -119,8 +114,7 @@ client = IpAddressLookupTwoSDK({
 Create a `.env.local` file at the project root:
 
 ```
-IP-ADDRESS-LOOKUP-TWO_TEST_LIVE=TRUE
-IP-ADDRESS-LOOKUP-TWO_APIKEY=<your-key>
+IP_ADDRESS_LOOKUP_TWO_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |
@@ -166,8 +159,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | --- | --- | --- |
 | `options_map` | `() -> dict` | Deep copy of current SDK options. |
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
-| `prepare` | `(fetchargs) -> (dict, err)` | Build an HTTP request definition without sending. |
-| `direct` | `(fetchargs) -> (dict, err)` | Build and send an HTTP request. |
+| `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
+| `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
 | `Ipn` | `(data) -> IpnEntity` | Create a Ipn entity instance. |
 
 ### Entity interface
@@ -176,11 +169,11 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> (any, err)` | Load a single entity by match criteria. |
-| `list` | `(reqmatch, ctrl) -> (any, err)` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> (any, err)` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> (any, err)` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> (any, err)` | Remove an entity. |
+| `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
+| `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
+| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
+| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
+| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -190,8 +183,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`dict` with these keys:
+Entity operations return the bare result data (a `dict` for single-entity
+ops, a `list` for `list`) and raise on error. Wrap calls in
+`try`/`except` to handle failures.
+
+The `direct()` escape hatch never raises — it returns a result `dict`
+you branch on via `result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -231,7 +228,7 @@ API path: `/ip`
 
 ### Ipn
 
-Create an instance: `const ipn = client.Ipn()`
+Create an instance: `const ipn = client.ipn`
 
 #### Operations
 
@@ -258,7 +255,7 @@ Create an instance: `const ipn = client.Ipn()`
 #### Example: Load
 
 ```ts
-const ipn = await client.Ipn().load({ id: 'ipn_id' })
+const ipn = await client.ipn.load({ id: 'ipn_id' })
 ```
 
 
@@ -332,11 +329,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-moon = client.Moon()
-moon.load({"planet_id": "earth", "id": "luna"})
+ipn = client.ipn
+ipn.load({"id": "example_id"})
 
-# moon.data_get() now returns the loaded moon data
-# moon.match_get() returns the last match criteria
+# ipn.data_get() now returns the loaded ipn data
+# ipn.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:ipn():list() / client:ipn():load({ id = ... })
+function IpAddressLookupTwoSDK:ipn(data)
+  local EntityMod = require("entity.ipn_entity")
+  if data == nil then
+    if self._ipn == nil then
+      self._ipn = EntityMod.new(self, nil)
+    end
+    return self._ipn
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:ipn() instead.
 function IpAddressLookupTwoSDK:Ipn(data)
   local EntityMod = require("entity.ipn_entity")
   return EntityMod.new(self, data)

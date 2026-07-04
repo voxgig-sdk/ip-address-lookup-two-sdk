@@ -42,8 +42,7 @@ class IpnEntityTest < Minitest::Test
     # LOAD
     ipn_ref01_ent = client.Ipn(nil)
     ipn_ref01_match_dt0 = {}
-    ipn_ref01_data_dt0_loaded, err = ipn_ref01_ent.load(ipn_ref01_match_dt0, nil)
-    assert_nil err
+    ipn_ref01_data_dt0_loaded = ipn_ref01_ent.load(ipn_ref01_match_dt0, nil)
     assert !ipn_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def ipn_basic_setup(extra)
     "IPADDRESSLOOKUPTWO_TEST_IPN_ENTID" => idmap,
     "IPADDRESSLOOKUPTWO_TEST_LIVE" => "FALSE",
     "IPADDRESSLOOKUPTWO_TEST_EXPLAIN" => "FALSE",
-    "IPADDRESSLOOKUPTWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def ipn_basic_setup(extra)
   if env["IPADDRESSLOOKUPTWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["IPADDRESSLOOKUPTWO_APIKEY"],
       },
       extra || {},
     ])

@@ -9,9 +9,10 @@ The PHP SDK for the IpAddressLookupTwo API — an entity-oriented client using P
 
 
 ## Install
-```bash
-composer require voxgig-sdk/ip-address-lookup-two
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,17 +26,18 @@ loading a specific record.
 <?php
 require_once 'ipaddresslookuptwo_sdk.php';
 
-$client = new IpAddressLookupTwoSDK([
-    "apikey" => getenv("IP-ADDRESS-LOOKUP-TWO_APIKEY"),
-]);
+$client = new IpAddressLookupTwoSDK();
 ```
 
-### 3. Load a ipn
+### 3. Load an ipn
 
 ```php
-[$result, $err] = $client->Ipn()->load(["id" => "example_id"]);
-if ($err) { throw new \Exception($err); }
-print_r($result);
+try {
+    $result = $client->ipn()->load(["id" => "example_id"]);
+    print_r($result);
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 
@@ -46,28 +48,31 @@ print_r($result);
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -81,7 +86,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = IpAddressLookupTwoSDK::test();
 
-[$result, $err] = $client->IpAddressLookupTwo()->load(["id" => "test01"]);
+$result = $client->ipn()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -115,8 +120,7 @@ $client = new IpAddressLookupTwoSDK([
 Create a `.env.local` file at the project root:
 
 ```
-IP-ADDRESS-LOOKUP-TWO_TEST_LIVE=TRUE
-IP-ADDRESS-LOOKUP-TWO_APIKEY=<your-key>
+IP_ADDRESS_LOOKUP_TWO_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -139,7 +143,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -185,8 +188,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -226,7 +233,7 @@ API path: `/ip`
 
 ### Ipn
 
-Create an instance: `const ipn = client.Ipn()`
+Create an instance: `const ipn = client.ipn`
 
 #### Operations
 
@@ -253,7 +260,7 @@ Create an instance: `const ipn = client.Ipn()`
 #### Example: Load
 
 ```ts
-const ipn = await client.Ipn().load({ id: 'ipn_id' })
+const ipn = await client.ipn.load({ id: 'ipn_id' })
 ```
 
 
@@ -328,11 +335,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$ipn = $client->ipn();
+$ipn->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $ipn->dataGet() now returns the loaded ipn data
+// $ipn->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

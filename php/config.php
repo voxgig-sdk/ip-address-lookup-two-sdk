@@ -20,9 +20,6 @@ class IpAddressLookupTwoConfig
             ],
             "options" => [
                 "base" => "https://api.ip.sb",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
