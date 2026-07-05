@@ -90,17 +90,17 @@ local ipn = client:Ipn(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `organization` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
+| `asn` | `string` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `ip` | `string` | No |  |
+| `isp` | `string` | No |  |
+| `latitude` | `number` | No |  |
+| `longitude` | `number` | No |  |
+| `organization` | `string` | No |  |
+| `region` | `string` | No |  |
+| `timezone` | `string` | No |  |
 
 ### Operations
 
@@ -109,7 +109,7 @@ local ipn = client:Ipn(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Ipn():load({ id = "ipn_id" })
+local result, err = client:Ipn():load()
 ```
 
 ### Common Methods

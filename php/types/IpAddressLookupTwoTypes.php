@@ -28,7 +28,7 @@ class Ipn
     public ?string $timezone = null;
 }
 
-/** Match filter for Ipn#load (any subset of Ipn fields). */
+/** Request payload for Ipn#load. */
 class IpnLoadMatch
 {
     public ?string $asn = null;

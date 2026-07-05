@@ -8,7 +8,7 @@ Complete API reference for the IpAddressLookupTwo PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/ip-address-lookup-two_sdk.php';
+require_once __DIR__ . '/ipaddresslookuptwo_sdk.php';
 
 $client = new IpAddressLookupTwoSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = IpAddressLookupTwoSDK::test();
 
 Create a new `IpnEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): IpAddressLookupTwoUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,17 +92,17 @@ $ipn = $client->Ipn();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `organization` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
+| `asn` | `string` | No |  |
+| `city` | `string` | No |  |
+| `country` | `string` | No |  |
+| `country_code` | `string` | No |  |
+| `ip` | `string` | No |  |
+| `isp` | `string` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `organization` | `string` | No |  |
+| `region` | `string` | No |  |
+| `timezone` | `string` | No |  |
 
 ### Operations
 
@@ -111,24 +111,24 @@ $ipn = $client->Ipn();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Ipn()->load(["id" => "ipn_id"]);
+$result = $client->Ipn()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -137,7 +137,7 @@ Set the entity match criteria.
 Create a new `IpnEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

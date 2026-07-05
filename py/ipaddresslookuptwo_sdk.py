@@ -221,7 +221,7 @@ class IpAddressLookupTwoSDK:
 
 
     def Ipn(self, data=None) -> "IpnEntity":
-        """Entity factory: client.Ipn().list({}) / client.Ipn().load({"id": ...})."""
+        """Entity factory: client.Ipn().list() / client.Ipn().load({"id": ...})."""
         from entity.ipn_entity import IpnEntity
         return IpnEntity(self, data)
 

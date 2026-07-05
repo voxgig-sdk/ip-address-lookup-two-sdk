@@ -8,7 +8,7 @@ Complete API reference for the IpAddressLookupTwo Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'ip-address-lookup-two_sdk'
+require_relative 'IpAddressLookupTwo_sdk'
 
 client = IpAddressLookupTwoSDK.new(options)
 ```
@@ -93,17 +93,17 @@ ipn = client.Ipn
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `organization` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
+| `asn` | `String` | No |  |
+| `city` | `String` | No |  |
+| `country` | `String` | No |  |
+| `country_code` | `String` | No |  |
+| `ip` | `String` | No |  |
+| `isp` | `String` | No |  |
+| `latitude` | `Float` | No |  |
+| `longitude` | `Float` | No |  |
+| `organization` | `String` | No |  |
+| `region` | `String` | No |  |
+| `timezone` | `String` | No |  |
 
 ### Operations
 
@@ -112,7 +112,7 @@ ipn = client.Ipn
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Ipn.load({ "id" => "ipn_id" })
+result = client.Ipn.load()
 ```
 
 ### Common Methods

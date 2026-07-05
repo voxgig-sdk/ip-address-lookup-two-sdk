@@ -23,8 +23,7 @@ type Ipn struct {
 	Timezone *string `json:"timezone,omitempty"`
 }
 
-// IpnLoadMatch mirrors the ipn fields as an all-optional match
-// filter (Go analog of Partial<Ipn>).
+// IpnLoadMatch is the typed request payload for Ipn.LoadTyped.
 type IpnLoadMatch struct {
 	Asn *string `json:"asn,omitempty"`
 	City *string `json:"city,omitempty"`

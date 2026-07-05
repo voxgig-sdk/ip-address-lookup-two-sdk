@@ -57,7 +57,7 @@ Ipn = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Ipn#load (any subset of Ipn fields).
+# Request payload for Ipn#load.
 #
 # @!attribute [rw] asn
 #   @return [String, nil]

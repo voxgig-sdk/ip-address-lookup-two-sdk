@@ -8,7 +8,7 @@ Complete API reference for the IpAddressLookupTwo Python SDK.
 ### Constructor
 
 ```python
-from ip-address-lookup-two_sdk import IpAddressLookupTwoSDK
+from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
 
 client = IpAddressLookupTwoSDK(options)
 ```
@@ -87,17 +87,17 @@ ipn = client.Ipn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | ``$STRING`` | No |  |
-| `city` | ``$STRING`` | No |  |
-| `country` | ``$STRING`` | No |  |
-| `country_code` | ``$STRING`` | No |  |
-| `ip` | ``$STRING`` | No |  |
-| `isp` | ``$STRING`` | No |  |
-| `latitude` | ``$NUMBER`` | No |  |
-| `longitude` | ``$NUMBER`` | No |  |
-| `organization` | ``$STRING`` | No |  |
-| `region` | ``$STRING`` | No |  |
-| `timezone` | ``$STRING`` | No |  |
+| `asn` | `str` | No |  |
+| `city` | `str` | No |  |
+| `country` | `str` | No |  |
+| `country_code` | `str` | No |  |
+| `ip` | `str` | No |  |
+| `isp` | `str` | No |  |
+| `latitude` | `float` | No |  |
+| `longitude` | `float` | No |  |
+| `organization` | `str` | No |  |
+| `region` | `str` | No |  |
+| `timezone` | `str` | No |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ ipn = client.Ipn()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Ipn().load({"id": "ipn_id"})
+result = client.Ipn().load()
 ```
 
 ### Common Methods
