@@ -16,8 +16,10 @@ main: {
           url: "https://api.ip.sb"
         }
       ]
+      summary: "The IPSB API allows you to perform IP address lookups for both IPv4 and IPv6 addresses."
       title: "IP Address Lookup API"
       version: "1.0.0"
+      website: "https://ip.sb"
     }
   }
 }

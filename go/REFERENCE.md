@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 ipn := client.Ipn(nil)
+fmt.Println(ipn.GetName()) // "ipn"
 ```
 
 ### Fields
@@ -117,6 +118,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Ipn(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

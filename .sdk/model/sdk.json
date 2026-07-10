@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -271,14 +268,17 @@
           "url": "https://github.com/l0v3m0n3y/IPSB"
         },
         "description": "The IPSB API allows you to perform IP address lookups for both IPv4 and IPv6 addresses. It provides detailed information such as location, ISP, and other related data for any given IP address.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "IP.SB API Server",
             "url": "https://api.ip.sb"
           }
         ],
+        "summary": "The IPSB API allows you to perform IP address lookups for both IPv4 and IPv6 addresses.",
         "title": "IP Address Lookup API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://ip.sb"
       },
       "option": {},
       "target": {
@@ -331,6 +331,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -381,6 +384,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
