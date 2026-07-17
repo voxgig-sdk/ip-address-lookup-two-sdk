@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- IpAddressLookupTwo SDK exists test
 
 local sdk = require("ip-address-lookup-two_sdk")
 
