@@ -34,7 +34,7 @@ client = IpAddressLookupTwoSDK.new
 
 ```ruby
 begin
-  # load returns the bare Ipn record (raises on error).
+  # load returns the ENTITY — call data_get for the Ipn record (raises on error).
   ipn = client.Ipn.load()
   puts ipn
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = IpAddressLookupTwoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 ipn = client.Ipn.load()
 puts ipn
 ```
@@ -284,7 +285,7 @@ Create an instance: `ipn = client.Ipn`
 #### Example: Load
 
 ```ruby
-# load returns the bare Ipn record (raises on error).
+# load returns the ENTITY — call data_get for the Ipn record (raises on error).
 ipn = client.Ipn.load()
 ```
 

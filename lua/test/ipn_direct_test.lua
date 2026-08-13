@@ -60,11 +60,11 @@ function ipn_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["IPADDRESSLOOKUPTWO_TEST_IPN_ENTID"] = {},
-    ["IPADDRESSLOOKUPTWO_TEST_LIVE"] = "FALSE",
+    ["IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID"] = {},
+    ["IP_ADDRESS_LOOKUP_TWO_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["IPADDRESSLOOKUPTWO_TEST_LIVE"] == "TRUE"
+  local live = env["IP_ADDRESS_LOOKUP_TWO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

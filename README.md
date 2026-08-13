@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IpAddressLookupTwoSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IpAddressLookupTwoSDK.test({
+  entity: {
+    ipn: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const ipn = await client.Ipn().load()
-// ipn is a bare Ipn populated with mock data
+// ipn is the Ipn entity, populated with mock data
+// — call ipn.data() for the record itself
 console.log(ipn)
 ```
 
@@ -182,7 +191,7 @@ require_once 'ipaddresslookuptwo_sdk.php';
 $client = new IpAddressLookupTwoSDK();
 
 
-// Load a specific ipn (returns the bare record; throws on error)
+// Load a specific ipn (returns the ENTITY; call data_get() for the record; throws on error)
 $ipn = $client->Ipn()->load();
 print_r($ipn);
 ```
@@ -210,7 +219,7 @@ require_relative "IpAddressLookupTwo_sdk"
 client = IpAddressLookupTwoSDK.new
 
 
-# Load a specific ipn (returns the bare record; raises on error)
+# Load a specific ipn (returns the ENTITY; call data_get for the record)
 ipn = client.Ipn.load()
 puts ipn
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/l0v3m0n3y/IPSB](https://github.com/l0v3m0n3y/IPSB)
 

@@ -23,8 +23,8 @@ module IpAddressLookupTwoTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("IPADDRESSLOOKUPTWO_TEST_LIVE")
-    override = getenv("IPADDRESSLOOKUPTWO_TEST_OVERRIDE")
+    live = getenv("IP_ADDRESS_LOOKUP_TWO_TEST_LIVE")
+    override = getenv("IP_ADDRESS_LOOKUP_TWO_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module IpAddressLookupTwoTestRunner
       end
     end
 
-    explain = getenv("IPADDRESSLOOKUPTWO_TEST_EXPLAIN")
-    m["IPADDRESSLOOKUPTWO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("IP_ADDRESS_LOOKUP_TWO_TEST_EXPLAIN")
+    m["IP_ADDRESS_LOOKUP_TWO_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

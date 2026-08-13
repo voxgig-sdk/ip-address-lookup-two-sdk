@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = IpAddressLookupTwoSDK.test()
 
 const ipn = await client.Ipn().load()
-// ipn is a bare entity populated with mock response data
+// ipn is the entity, populated with mock response data
+// — call ipn.data() for the record itself
 console.log(ipn)
 ```
 

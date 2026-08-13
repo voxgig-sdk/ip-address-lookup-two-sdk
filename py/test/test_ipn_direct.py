@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from ipaddresslookuptwo_sdk.utility.voxgig_struct import voxgig_struct as vs
 from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK
-from core import helpers
+from ipaddresslookuptwo_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _ipn_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "IPADDRESSLOOKUPTWO_TEST_IPN_ENTID": {},
-        "IPADDRESSLOOKUPTWO_TEST_LIVE": "FALSE",
+        "IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID": {},
+        "IP_ADDRESS_LOOKUP_TWO_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("IPADDRESSLOOKUPTWO_TEST_LIVE") == "TRUE"
+    live = env.get("IP_ADDRESS_LOOKUP_TWO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

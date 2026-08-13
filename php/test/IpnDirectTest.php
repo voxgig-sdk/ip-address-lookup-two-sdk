@@ -65,11 +65,11 @@ function ipn_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "IPADDRESSLOOKUPTWO_TEST_IPN_ENTID" => [],
-        "IPADDRESSLOOKUPTWO_TEST_LIVE" => "FALSE",
+        "IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID" => [],
+        "IP_ADDRESS_LOOKUP_TWO_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["IPADDRESSLOOKUPTWO_TEST_LIVE"] === "TRUE";
+    $live = $env["IP_ADDRESS_LOOKUP_TWO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

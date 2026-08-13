@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# IpAddressLookupTwo SDK exists test
 
 import pytest
 from ipaddresslookuptwo_sdk import IpAddressLookupTwoSDK

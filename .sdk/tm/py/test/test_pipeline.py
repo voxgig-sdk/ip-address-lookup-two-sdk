@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import IpAddressLookupTwoSDK
-from core.error import IpAddressLookupTwoError
-from core.result import IpAddressLookupTwoResult
-from core.response import IpAddressLookupTwoResponse
-from core.spec import IpAddressLookupTwoSpec
-from feature.base_feature import IpAddressLookupTwoBaseFeature
+from projectname_sdk.core.error import IpAddressLookupTwoError
+from projectname_sdk.core.result import IpAddressLookupTwoResult
+from projectname_sdk.core.response import IpAddressLookupTwoResponse
+from projectname_sdk.core.spec import IpAddressLookupTwoSpec
+from projectname_sdk.feature.base_feature import IpAddressLookupTwoBaseFeature
 
 
 def _client():

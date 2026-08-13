@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ IpAddressLookupTwoUtility.registrar = ->(u) {
   u.prepare_params = IpAddressLookupTwoUtilities::PrepareParams
   u.prepare_path = IpAddressLookupTwoUtilities::PreparePath
   u.prepare_query = IpAddressLookupTwoUtilities::PrepareQuery
+  u.graphql_body = IpAddressLookupTwoUtilities::GraphqlBody
+  u.graphql_errors = IpAddressLookupTwoUtilities::GraphqlErrors
   u.result_basic = IpAddressLookupTwoUtilities::ResultBasic
   u.result_body = IpAddressLookupTwoUtilities::ResultBody
   u.result_headers = IpAddressLookupTwoUtilities::ResultHeaders
