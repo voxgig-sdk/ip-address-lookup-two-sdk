@@ -28,7 +28,7 @@ class IpAddressLookupTwoSDK
     utility = IpAddressLookupTwoUtility.new
     @_utility = utility
 
-    config = IpAddressLookupTwoConfig.make_config
+    config = IpAddressLookupTwoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

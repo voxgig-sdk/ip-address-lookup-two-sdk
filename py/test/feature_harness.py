@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from ipaddresslookuptwo_sdk.config import make_config
+from ipaddresslookuptwo_sdk.config import shared_config
 from ipaddresslookuptwo_sdk.features import _make_feature
 from ipaddresslookuptwo_sdk.core.control import IpAddressLookupTwoControl
 from ipaddresslookuptwo_sdk.core.error import IpAddressLookupTwoError
@@ -24,7 +24,7 @@ from ipaddresslookuptwo_sdk.core.spec import IpAddressLookupTwoSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

@@ -15,7 +15,7 @@ require_relative "../IpAddressLookupTwo_sdk"
 module IpAddressLookupTwoFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = IpAddressLookupTwoConfig.make_config["feature"]
+    f = IpAddressLookupTwoConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
