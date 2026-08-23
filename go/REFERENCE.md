@@ -98,17 +98,17 @@ fmt.Println(ipn.GetName()) // "ipn"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `string` | No |  |
-| `city` | `string` | No |  |
-| `country` | `string` | No |  |
-| `country_code` | `string` | No |  |
-| `ip` | `string` | No |  |
-| `isp` | `string` | No |  |
-| `latitude` | `float64` | No |  |
-| `longitude` | `float64` | No |  |
-| `organization` | `string` | No |  |
-| `region` | `string` | No |  |
-| `timezone` | `string` | No |  |
+| `asn` | `string` | No | Autonomous System Number |
+| `city` | `string` | No | City name |
+| `country` | `string` | No | Country name |
+| `country_code` | `string` | No | ISO country code |
+| `ip` | `string` | No | The IP address |
+| `isp` | `string` | No | Internet Service Provider |
+| `latitude` | `float64` | No | Latitude coordinate |
+| `longitude` | `float64` | No | Longitude coordinate |
+| `organization` | `string` | No | Organization name |
+| `region` | `string` | No | Region or state |
+| `timezone` | `string` | No | Timezone identifier |
 
 ### Operations
 

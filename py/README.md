@@ -241,17 +241,17 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `city` |  |
-| `country` |  |
-| `country_code` |  |
-| `ip` |  |
-| `isp` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `organization` |  |
-| `region` |  |
-| `timezone` |  |
+| `asn` | Autonomous System Number |
+| `city` | City name |
+| `country` | Country name |
+| `country_code` | ISO country code |
+| `ip` | The IP address |
+| `isp` | Internet Service Provider |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `organization` | Organization name |
+| `region` | Region or state |
+| `timezone` | Timezone identifier |
 
 Operations: Load.
 
@@ -276,17 +276,17 @@ Create an instance: `ipn = client.Ipn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `str` |  |
-| `city` | `str` |  |
-| `country` | `str` |  |
-| `country_code` | `str` |  |
-| `ip` | `str` |  |
-| `isp` | `str` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `organization` | `str` |  |
-| `region` | `str` |  |
-| `timezone` | `str` |  |
+| `asn` | `str` | Autonomous System Number |
+| `city` | `str` | City name |
+| `country` | `str` | Country name |
+| `country_code` | `str` | ISO country code |
+| `ip` | `str` | The IP address |
+| `isp` | `str` | Internet Service Provider |
+| `latitude` | `float` | Latitude coordinate |
+| `longitude` | `float` | Longitude coordinate |
+| `organization` | `str` | Organization name |
+| `region` | `str` | Region or state |
+| `timezone` | `str` | Timezone identifier |
 
 #### Example: Load
 

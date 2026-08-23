@@ -87,17 +87,17 @@ ipn = client.Ipn()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `str` | No |  |
-| `city` | `str` | No |  |
-| `country` | `str` | No |  |
-| `country_code` | `str` | No |  |
-| `ip` | `str` | No |  |
-| `isp` | `str` | No |  |
-| `latitude` | `float` | No |  |
-| `longitude` | `float` | No |  |
-| `organization` | `str` | No |  |
-| `region` | `str` | No |  |
-| `timezone` | `str` | No |  |
+| `asn` | `str` | No | Autonomous System Number |
+| `city` | `str` | No | City name |
+| `country` | `str` | No | Country name |
+| `country_code` | `str` | No | ISO country code |
+| `ip` | `str` | No | The IP address |
+| `isp` | `str` | No | Internet Service Provider |
+| `latitude` | `float` | No | Latitude coordinate |
+| `longitude` | `float` | No | Longitude coordinate |
+| `organization` | `str` | No | Organization name |
+| `region` | `str` | No | Region or state |
+| `timezone` | `str` | No | Timezone identifier |
 
 ### Operations
 

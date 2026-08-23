@@ -6,7 +6,7 @@ The Golang SDK for the IpAddressLookupTwo API — an entity-oriented client usin
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Ipn(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,17 +258,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"asn"` |  |
-| `"city"` |  |
-| `"country"` |  |
-| `"country_code"` |  |
-| `"ip"` |  |
-| `"isp"` |  |
-| `"latitude"` |  |
-| `"longitude"` |  |
-| `"organization"` |  |
-| `"region"` |  |
-| `"timezone"` |  |
+| `"asn"` | Autonomous System Number |
+| `"city"` | City name |
+| `"country"` | Country name |
+| `"country_code"` | ISO country code |
+| `"ip"` | The IP address |
+| `"isp"` | Internet Service Provider |
+| `"latitude"` | Latitude coordinate |
+| `"longitude"` | Longitude coordinate |
+| `"organization"` | Organization name |
+| `"region"` | Region or state |
+| `"timezone"` | Timezone identifier |
 
 Operations: Load.
 
@@ -293,17 +293,17 @@ Create an instance: `ipn := client.Ipn(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `string` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `country_code` | `string` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `latitude` | `float64` |  |
-| `longitude` | `float64` |  |
-| `organization` | `string` |  |
-| `region` | `string` |  |
-| `timezone` | `string` |  |
+| `asn` | `string` | Autonomous System Number |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
+| `country_code` | `string` | ISO country code |
+| `ip` | `string` | The IP address |
+| `isp` | `string` | Internet Service Provider |
+| `latitude` | `float64` | Latitude coordinate |
+| `longitude` | `float64` | Longitude coordinate |
+| `organization` | `string` | Organization name |
+| `region` | `string` | Region or state |
+| `timezone` | `string` | Timezone identifier |
 
 #### Example: Load
 

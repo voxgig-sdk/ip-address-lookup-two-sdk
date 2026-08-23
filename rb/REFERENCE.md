@@ -93,17 +93,17 @@ ipn = client.Ipn
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `asn` | `String` | No |  |
-| `city` | `String` | No |  |
-| `country` | `String` | No |  |
-| `country_code` | `String` | No |  |
-| `ip` | `String` | No |  |
-| `isp` | `String` | No |  |
-| `latitude` | `Float` | No |  |
-| `longitude` | `Float` | No |  |
-| `organization` | `String` | No |  |
-| `region` | `String` | No |  |
-| `timezone` | `String` | No |  |
+| `asn` | `String` | No | Autonomous System Number |
+| `city` | `String` | No | City name |
+| `country` | `String` | No | Country name |
+| `country_code` | `String` | No | ISO country code |
+| `ip` | `String` | No | The IP address |
+| `isp` | `String` | No | Internet Service Provider |
+| `latitude` | `Float` | No | Latitude coordinate |
+| `longitude` | `Float` | No | Longitude coordinate |
+| `organization` | `String` | No | Organization name |
+| `region` | `String` | No | Region or state |
+| `timezone` | `String` | No | Timezone identifier |
 
 ### Operations
 

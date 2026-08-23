@@ -235,17 +235,17 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `city` |  |
-| `country` |  |
-| `country_code` |  |
-| `ip` |  |
-| `isp` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `organization` |  |
-| `region` |  |
-| `timezone` |  |
+| `asn` | Autonomous System Number |
+| `city` | City name |
+| `country` | Country name |
+| `country_code` | ISO country code |
+| `ip` | The IP address |
+| `isp` | Internet Service Provider |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `organization` | Organization name |
+| `region` | Region or state |
+| `timezone` | Timezone identifier |
 
 Operations: Load.
 
@@ -270,17 +270,17 @@ Create an instance: `ipn = client.Ipn`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `String` |  |
-| `city` | `String` |  |
-| `country` | `String` |  |
-| `country_code` | `String` |  |
-| `ip` | `String` |  |
-| `isp` | `String` |  |
-| `latitude` | `Float` |  |
-| `longitude` | `Float` |  |
-| `organization` | `String` |  |
-| `region` | `String` |  |
-| `timezone` | `String` |  |
+| `asn` | `String` | Autonomous System Number |
+| `city` | `String` | City name |
+| `country` | `String` | Country name |
+| `country_code` | `String` | ISO country code |
+| `ip` | `String` | The IP address |
+| `isp` | `String` | Internet Service Provider |
+| `latitude` | `Float` | Latitude coordinate |
+| `longitude` | `Float` | Longitude coordinate |
+| `organization` | `String` | Organization name |
+| `region` | `String` | Region or state |
+| `timezone` | `String` | Timezone identifier |
 
 #### Example: Load
 

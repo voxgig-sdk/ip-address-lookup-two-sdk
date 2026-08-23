@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,17 +285,17 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `city` |  |
-| `country` |  |
-| `country_code` |  |
-| `ip` |  |
-| `isp` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `organization` |  |
-| `region` |  |
-| `timezone` |  |
+| `asn` | Autonomous System Number |
+| `city` | City name |
+| `country` | Country name |
+| `country_code` | ISO country code |
+| `ip` | The IP address |
+| `isp` | Internet Service Provider |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `organization` | Organization name |
+| `region` | Region or state |
+| `timezone` | Timezone identifier |
 
 Operations: load.
 
@@ -320,17 +320,17 @@ Create an instance: `const ipn = client.Ipn()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `string` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `country_code` | `string` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `organization` | `string` |  |
-| `region` | `string` |  |
-| `timezone` | `string` |  |
+| `asn` | `string` | Autonomous System Number |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
+| `country_code` | `string` | ISO country code |
+| `ip` | `string` | The IP address |
+| `isp` | `string` | Internet Service Provider |
+| `latitude` | `number` | Latitude coordinate |
+| `longitude` | `number` | Longitude coordinate |
+| `organization` | `string` | Organization name |
+| `region` | `string` | Region or state |
+| `timezone` | `string` | Timezone identifier |
 
 #### Example: Load
 

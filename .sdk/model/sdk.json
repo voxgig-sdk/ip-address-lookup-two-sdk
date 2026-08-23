@@ -36,66 +36,77 @@
               "active": true,
               "name": "asn",
               "req": false,
+              "short": "Autonomous System Number",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "city",
               "req": false,
+              "short": "City name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": false,
+              "short": "Country name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country_code",
               "req": false,
+              "short": "ISO country code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ip",
               "req": false,
+              "short": "The IP address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isp",
               "req": false,
+              "short": "Internet Service Provider",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "organization",
               "req": false,
+              "short": "Organization name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "region",
               "req": false,
+              "short": "Region or state",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timezone",
               "req": false,
+              "short": "Timezone identifier",
               "type": "`$STRING`"
             }
           ],

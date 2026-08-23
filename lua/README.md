@@ -225,17 +225,17 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `city` |  |
-| `country` |  |
-| `country_code` |  |
-| `ip` |  |
-| `isp` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `organization` |  |
-| `region` |  |
-| `timezone` |  |
+| `asn` | Autonomous System Number |
+| `city` | City name |
+| `country` | Country name |
+| `country_code` | ISO country code |
+| `ip` | The IP address |
+| `isp` | Internet Service Provider |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `organization` | Organization name |
+| `region` | Region or state |
+| `timezone` | Timezone identifier |
 
 Operations: Load.
 
@@ -260,17 +260,17 @@ Create an instance: `local ipn = client:Ipn(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `string` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `country_code` | `string` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `latitude` | `number` |  |
-| `longitude` | `number` |  |
-| `organization` | `string` |  |
-| `region` | `string` |  |
-| `timezone` | `string` |  |
+| `asn` | `string` | Autonomous System Number |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
+| `country_code` | `string` | ISO country code |
+| `ip` | `string` | The IP address |
+| `isp` | `string` | Internet Service Provider |
+| `latitude` | `number` | Latitude coordinate |
+| `longitude` | `number` | Longitude coordinate |
+| `organization` | `string` | Organization name |
+| `region` | `string` | Region or state |
+| `timezone` | `string` | Timezone identifier |
 
 #### Example: Load
 

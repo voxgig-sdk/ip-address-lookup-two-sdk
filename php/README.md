@@ -245,17 +245,17 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `asn` |  |
-| `city` |  |
-| `country` |  |
-| `country_code` |  |
-| `ip` |  |
-| `isp` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `organization` |  |
-| `region` |  |
-| `timezone` |  |
+| `asn` | Autonomous System Number |
+| `city` | City name |
+| `country` | Country name |
+| `country_code` | ISO country code |
+| `ip` | The IP address |
+| `isp` | Internet Service Provider |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `organization` | Organization name |
+| `region` | Region or state |
+| `timezone` | Timezone identifier |
 
 Operations: Load.
 
@@ -280,17 +280,17 @@ Create an instance: `$ipn = $client->Ipn();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `asn` | `string` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `country_code` | `string` |  |
-| `ip` | `string` |  |
-| `isp` | `string` |  |
-| `latitude` | `float` |  |
-| `longitude` | `float` |  |
-| `organization` | `string` |  |
-| `region` | `string` |  |
-| `timezone` | `string` |  |
+| `asn` | `string` | Autonomous System Number |
+| `city` | `string` | City name |
+| `country` | `string` | Country name |
+| `country_code` | `string` | ISO country code |
+| `ip` | `string` | The IP address |
+| `isp` | `string` | Internet Service Provider |
+| `latitude` | `float` | Latitude coordinate |
+| `longitude` | `float` | Longitude coordinate |
+| `organization` | `string` | Organization name |
+| `region` | `string` | Region or state |
+| `timezone` | `string` | Timezone identifier |
 
 #### Example: Load
 
