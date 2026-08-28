@@ -59,50 +59,10 @@ Ipn = Struct.new(
 
 # Request payload for Ipn#load.
 #
-# @!attribute [rw] asn
-#   @return [String, nil]
-#
-# @!attribute [rw] city
-#   @return [String, nil]
-#
-# @!attribute [rw] country
-#   @return [String, nil]
-#
-# @!attribute [rw] country_code
-#   @return [String, nil]
-#
 # @!attribute [rw] ip
 #   @return [String, nil]
-#
-# @!attribute [rw] isp
-#   @return [String, nil]
-#
-# @!attribute [rw] latitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] longitude
-#   @return [Float, nil]
-#
-# @!attribute [rw] organization
-#   @return [String, nil]
-#
-# @!attribute [rw] region
-#   @return [String, nil]
-#
-# @!attribute [rw] timezone
-#   @return [String, nil]
 IpnLoadMatch = Struct.new(
-  :asn,
-  :city,
-  :country,
-  :country_code,
   :ip,
-  :isp,
-  :latitude,
-  :longitude,
-  :organization,
-  :region,
-  :timezone,
   keyword_init: true
 )
 

@@ -20,17 +20,7 @@
 ---@field timezone? string
 
 ---@class IpnLoadMatch
----@field asn? string
----@field city? string
----@field country? string
----@field country_code? string
 ---@field ip? string
----@field isp? string
----@field latitude? number
----@field longitude? number
----@field organization? string
----@field region? string
----@field timezone? string
 
 local M = {}
 

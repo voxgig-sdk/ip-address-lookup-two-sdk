@@ -31,14 +31,4 @@ class Ipn(TypedDict, total=False):
 
 
 class IpnLoadMatch(TypedDict, total=False):
-    asn: str
-    city: str
-    country: str
-    country_code: str
     ip: str
-    isp: str
-    latitude: float
-    longitude: float
-    organization: str
-    region: str
-    timezone: str

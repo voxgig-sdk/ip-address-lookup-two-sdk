@@ -29,17 +29,7 @@ type Ipn struct {
 
 // IpnLoadMatch is the typed request payload for Ipn.LoadTyped.
 type IpnLoadMatch struct {
-	Asn *string `json:"asn,omitempty"`
-	City *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
-	CountryCode *string `json:"country_code,omitempty"`
 	Ip *string `json:"ip,omitempty"`
-	Isp *string `json:"isp,omitempty"`
-	Latitude *float64 `json:"latitude,omitempty"`
-	Longitude *float64 `json:"longitude,omitempty"`
-	Organization *string `json:"organization,omitempty"`
-	Region *string `json:"region,omitempty"`
-	Timezone *string `json:"timezone,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

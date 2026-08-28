@@ -31,16 +31,6 @@ class Ipn
 /** Request payload for Ipn#load. */
 class IpnLoadMatch
 {
-    public ?string $asn = null;
-    public ?string $city = null;
-    public ?string $country = null;
-    public ?string $country_code = null;
     public ?string $ip = null;
-    public ?string $isp = null;
-    public ?float $latitude = null;
-    public ?float $longitude = null;
-    public ?string $organization = null;
-    public ?string $region = null;
-    public ?string $timezone = null;
 }
 
