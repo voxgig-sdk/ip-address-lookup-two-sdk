@@ -74,11 +74,13 @@ module IpAddressLookupTwoConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "float",
               "name" => "latitude",
               "short" => "Latitude coordinate",
               "type" => "`$NUMBER`",
             },
             {
+              "format" => "float",
               "name" => "longitude",
               "short" => "Longitude coordinate",
               "type" => "`$NUMBER`",
@@ -120,8 +122,10 @@ module IpAddressLookupTwoConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/ip",
-                  "parts" => [
-                    "ip",
+                  "segments" => [
+                    {
+                      "lit" => "ip",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -132,6 +136,9 @@ module IpAddressLookupTwoConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "ip",
+                  ],
                 },
               ],
             },

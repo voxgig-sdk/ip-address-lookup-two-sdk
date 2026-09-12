@@ -88,11 +88,13 @@ class IpAddressLookupTwoConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'float',
               'name' => 'latitude',
               'short' => 'Latitude coordinate',
               'type' => '`$NUMBER`',
             ],
             [
+              'format' => 'float',
               'name' => 'longitude',
               'short' => 'Longitude coordinate',
               'type' => '`$NUMBER`',
@@ -134,8 +136,10 @@ class IpAddressLookupTwoConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/ip',
-                  'parts' => [
-                    'ip',
+                  'segments' => [
+                    [
+                      'lit' => 'ip',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -145,6 +149,9 @@ class IpAddressLookupTwoConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'ip',
                   ],
                 ],
               ],

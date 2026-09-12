@@ -42,12 +42,14 @@ main: kit: entity: ipn: {
       type: "`$STRING`"
     }
     {
+      format: "float"
       name: "latitude"
       req: false
       short: "Latitude coordinate"
       type: "`$NUMBER`"
     }
     {
+      format: "float"
       name: "longitude"
       req: false
       short: "Longitude coordinate"
@@ -93,8 +95,10 @@ main: kit: entity: ipn: {
           }
           method: "GET"
           orig: "/ip"
-          parts: [
-            "ip"
+          segments: [
+            {
+              lit: "ip"
+            }
           ]
           select: {
             exist: [

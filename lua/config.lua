@@ -62,11 +62,13 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "float",
             ["name"] = "latitude",
             ["short"] = "Latitude coordinate",
             ["type"] = "`$NUMBER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "longitude",
             ["short"] = "Longitude coordinate",
             ["type"] = "`$NUMBER`",
@@ -108,8 +110,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/ip",
-                ["parts"] = {
-                  "ip",
+                ["segments"] = {
+                  {
+                    ["lit"] = "ip",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -119,6 +123,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "ip",
                 },
               },
             },
