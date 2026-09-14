@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two'
+import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two-sdk'
 
 const client = new IpAddressLookupTwoSDK()
 ```
@@ -421,7 +421,7 @@ ip-address-lookup-two/
 Import the SDK from the package root:
 
 ```ts
-import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two'
+import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two-sdk'
 ```
 
 ### Entity state

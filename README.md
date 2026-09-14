@@ -105,7 +105,7 @@ local result, err = client:Ipn():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-address-lookup-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
 | Python | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
 | PHP | `voxgig-sdk/ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/ip-address-lookup-two-sdk/go` | `go get github.com/voxgig-sdk/ip-address-lookup-two-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Ipn():load()
 ### TypeScript
 
 ```ts
-import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two'
+import { IpAddressLookupTwoSDK } from '@voxgig-sdk/ip-address-lookup-two-sdk'
 
 const client = new IpAddressLookupTwoSDK()
 
