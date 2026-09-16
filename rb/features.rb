@@ -1,7 +1,10 @@
 # IpAddressLookupTwo SDK feature factory
 
 require_relative 'feature/base_feature'
+require_relative 'feature/ratelimit_feature'
+require_relative 'feature/retry_feature'
 require_relative 'feature/test_feature'
+require_relative 'feature/timeout_feature'
 
 
 module IpAddressLookupTwoFeatures
@@ -9,8 +12,14 @@ module IpAddressLookupTwoFeatures
     case name
     when "base"
       IpAddressLookupTwoBaseFeature.new
+    when "ratelimit"
+      IpAddressLookupTwoRatelimitFeature.new
+    when "retry"
+      IpAddressLookupTwoRetryFeature.new
     when "test"
       IpAddressLookupTwoTestFeature.new
+    when "timeout"
+      IpAddressLookupTwoTimeoutFeature.new
     else
       IpAddressLookupTwoBaseFeature.new
     end

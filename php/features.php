@@ -4,7 +4,10 @@ declare(strict_types=1);
 // IpAddressLookupTwo SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class IpAddressLookupTwoFeatures
@@ -14,8 +17,14 @@ class IpAddressLookupTwoFeatures
         switch ($name) {
             case "base":
                 return new IpAddressLookupTwoBaseFeature();
+            case "ratelimit":
+                return new IpAddressLookupTwoRatelimitFeature();
+            case "retry":
+                return new IpAddressLookupTwoRetryFeature();
             case "test":
                 return new IpAddressLookupTwoTestFeature();
+            case "timeout":
+                return new IpAddressLookupTwoTimeoutFeature();
             default:
                 return new IpAddressLookupTwoBaseFeature();
         }
@@ -31,7 +40,10 @@ class IpAddressLookupTwoFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

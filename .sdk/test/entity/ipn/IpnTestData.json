@@ -61,5 +61,162 @@
         "timezone": "s1c2"
       }
     }
+  },
+  "requests": {
+    "GET /ip": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getIpInfo",
+        "parameters": [
+          {
+            "description": "The IP address to lookup (IPv4 or IPv6). If not provided, returns information about the requesting client's IP address.",
+            "in": "query",
+            "name": "ip",
+            "required": false,
+            "schema": {
+              "example": "8.8.8.8",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "asn": {
+                      "description": "Autonomous System Number",
+                      "example": "AS15169",
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "City name",
+                      "example": "Mountain View",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "Country name",
+                      "example": "United States",
+                      "type": "string"
+                    },
+                    "country_code": {
+                      "description": "ISO country code",
+                      "example": "US",
+                      "type": "string"
+                    },
+                    "ip": {
+                      "description": "The IP address",
+                      "example": "8.8.8.8",
+                      "type": "string"
+                    },
+                    "isp": {
+                      "description": "Internet Service Provider",
+                      "example": "Google LLC",
+                      "type": "string"
+                    },
+                    "latitude": {
+                      "description": "Latitude coordinate",
+                      "example": 37.386,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "description": "Longitude coordinate",
+                      "example": -122.0838,
+                      "format": "float",
+                      "type": "number"
+                    },
+                    "organization": {
+                      "description": "Organization name",
+                      "example": "Google LLC",
+                      "type": "string"
+                    },
+                    "region": {
+                      "description": "Region or state",
+                      "example": "California",
+                      "type": "string"
+                    },
+                    "timezone": {
+                      "description": "Timezone identifier",
+                      "example": "America/Los_Angeles",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with IP address information"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Invalid IP address format",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - Invalid IP address format"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "IP address not found",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "IP address not found"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Rate limit exceeded",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Too many requests - Rate limit exceeded"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Internal server error",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

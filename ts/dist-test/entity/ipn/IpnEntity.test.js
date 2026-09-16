@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.IP_ADDRESS_LOOKUP_TWO_TEST_LIVE;
         for (const op of ['load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'ipn.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'ipn.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "asn", "req": false, "short": "Autonomous System Number", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "city", "req": false, "short": "City name", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "country", "req": false, "short": "Country name", "type": "`$STRING`", "index$": 2 }, { "active": true, "name": "country_code", "req": false, "short": "ISO country code", "type": "`$STRING`", "index$": 3 }, { "active": true, "name": "ip", "req": false, "short": "The IP address", "type": "`$STRING`", "index$": 4 }, { "active": true, "name": "isp", "req": false, "short": "Internet Service Provider", "type": "`$STRING`", "index$": 5 }, { "active": true, "format": "float", "name": "latitude", "req": false, "short": "Latitude coordinate", "type": "`$NUMBER`", "index$": 6 }, { "active": true, "format": "float", "name": "longitude", "req": false, "short": "Longitude coordinate", "type": "`$NUMBER`", "index$": 7 }, { "active": true, "name": "organization", "req": false, "short": "Organization name", "type": "`$STRING`", "index$": 8 }, { "active": true, "name": "region", "req": false, "short": "Region or state", "type": "`$STRING`", "index$": 9 }, { "active": true, "name": "timezone", "req": false, "short": "Timezone identifier", "type": "`$STRING`", "index$": 10 }], "name": "ipn", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "query": [{ "active": true, "example": "8.8.8.8", "kind": "query", "name": "ip", "orig": "ip", "reqd": false, "type": "`$STRING`", "index$": 0 }] }, "contract": { "id": "GET /ip", "json": "{\"operationId\":\"getIpInfo\",\"parameters\":[{\"description\":\"The IP address to lookup (IPv4 or IPv6). If not provided, returns information about the requesting client's IP address.\",\"in\":\"query\",\"name\":\"ip\",\"required\":false,\"schema\":{\"example\":\"8.8.8.8\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"asn\":{\"description\":\"Autonomous System Number\",\"example\":\"AS15169\",\"type\":\"string\"},\"city\":{\"description\":\"City name\",\"example\":\"Mountain View\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"country_code\":{\"description\":\"ISO country code\",\"example\":\"US\",\"type\":\"string\"},\"ip\":{\"description\":\"The IP address\",\"example\":\"8.8.8.8\",\"type\":\"string\"},\"isp\":{\"description\":\"Internet Service Provider\",\"example\":\"Google LLC\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":37.386,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":-122.0838,\"format\":\"float\",\"type\":\"number\"},\"organization\":{\"description\":\"Organization name\",\"example\":\"Google LLC\",\"type\":\"string\"},\"region\":{\"description\":\"Region or state\",\"example\":\"California\",\"type\":\"string\"},\"timezone\":{\"description\":\"Timezone identifier\",\"example\":\"America/Los_Angeles\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with IP address information\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Invalid IP address format\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid IP address format\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"IP address not found\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"IP address not found\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Rate limit exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Too many requests - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/ip", "segments": [{ "lit": "ip" }], "select": { "exist": ["ip"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "ipn", "name__orig": "ipn", "Name": "Ipn", "name_": "ipn", "name-": "ipn", "NAME": "IPN", "index$": 0 }, { "active": true, "entity": "ipn", "key$": "BasicIpnFlow", "kind": "basic", "name": "BasicIpnFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "ipn_ref01", "srcdatavar": "ipn_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-ipn_ref01" } }], "index$": 0 }] }, 'Ipn');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -102,12 +100,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID': idmap,
         'IP_ADDRESS_LOOKUP_TWO_TEST_LIVE': 'FALSE',
@@ -115,7 +107,13 @@ function basicSetup(extra) {
     });
     idmap = env['IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID'];
     const live = 'TRUE' === env.IP_ADDRESS_LOOKUP_TWO_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['IP_ADDRESS_LOOKUP_TWO_TEST_IPN_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.IpAddressLookupTwoSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -126,7 +124,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -138,7 +137,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.IP_ADDRESS_LOOKUP_TWO_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;
