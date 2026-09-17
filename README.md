@@ -105,12 +105,12 @@ local result, err = client:Ipn():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/ip-address-lookup-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
-| Python | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
-| PHP | `voxgig-sdk/ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
+| TypeScript | `@voxgig-sdk/ip-address-lookup-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/tags) |
+| Python | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/tags) |
+| PHP | `voxgig-sdk/ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/ip-address-lookup-two-sdk/go` | `go get github.com/voxgig-sdk/ip-address-lookup-two-sdk/go@latest` |
-| Ruby | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
-| Lua | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/releases) |
+| Ruby | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/tags) |
+| Lua | `voxgig-sdk-ip-address-lookup-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/ip-address-lookup-two-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/ip-address-lookup-two-sdk/go-cli` | `go install github.com/voxgig-sdk/ip-address-lookup-two-sdk/go-cli/cmd/ip-address-lookup-two@latest` |
 | Go MCP server | `github.com/voxgig-sdk/ip-address-lookup-two-sdk/go-mcp` | `go get github.com/voxgig-sdk/ip-address-lookup-two-sdk/go-mcp@latest` |
 
