@@ -24,93 +24,170 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "ipn": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "asn",
-              "req": false,
-              "short": "Autonomous System Number",
-              "type": "`$STRING`"
+          "fields": {
+            "asn": {
+              "a": true,
+              "h": "Asn",
+              "n": "asn",
+              "r": false,
+              "sh": "Autonomous System Number",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "city",
-              "req": false,
-              "short": "City name",
-              "type": "`$STRING`"
+            "city": {
+              "a": true,
+              "h": "City",
+              "n": "city",
+              "r": false,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "country",
-              "req": false,
-              "short": "Country name",
-              "type": "`$STRING`"
+            "country": {
+              "a": true,
+              "h": "Country",
+              "n": "country",
+              "r": false,
+              "sh": "Country name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "country_code",
-              "req": false,
-              "short": "ISO country code",
-              "type": "`$STRING`"
+            "country_code": {
+              "a": true,
+              "h": "Country Code",
+              "n": "country_code",
+              "r": false,
+              "sh": "ISO country code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ip",
-              "req": false,
-              "short": "The IP address",
-              "type": "`$STRING`"
+            "ip": {
+              "a": true,
+              "h": "Ip",
+              "n": "ip",
+              "r": false,
+              "sh": "The IP address",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "isp",
-              "req": false,
-              "short": "Internet Service Provider",
-              "type": "`$STRING`"
+            "isp": {
+              "a": true,
+              "h": "Isp",
+              "n": "isp",
+              "r": false,
+              "sh": "Internet Service Provider",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "latitude",
-              "req": false,
-              "short": "Latitude coordinate",
-              "type": "`$NUMBER`"
+            "latitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Latitude",
+              "n": "latitude",
+              "r": false,
+              "sh": "Latitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "format": "float",
-              "name": "longitude",
-              "req": false,
-              "short": "Longitude coordinate",
-              "type": "`$NUMBER`"
+            "longitude": {
+              "a": true,
+              "fo": "float",
+              "h": "Longitude",
+              "n": "longitude",
+              "r": false,
+              "sh": "Longitude coordinate",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "organization",
-              "req": false,
-              "short": "Organization name",
-              "type": "`$STRING`"
+            "organization": {
+              "a": true,
+              "h": "Organization",
+              "n": "organization",
+              "r": false,
+              "sh": "Organization name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "region",
-              "req": false,
-              "short": "Region or state",
-              "type": "`$STRING`"
+            "region": {
+              "a": true,
+              "h": "Region",
+              "n": "region",
+              "r": false,
+              "sh": "Region or state",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "timezone",
-              "req": false,
-              "short": "Timezone identifier",
-              "type": "`$STRING`"
+            "timezone": {
+              "a": true,
+              "h": "Timezone",
+              "n": "timezone",
+              "r": false,
+              "sh": "Timezone identifier",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "ipn",
           "op": {
             "load": {
@@ -118,40 +195,40 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /ip",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "example": "8.8.8.8",
-                        "kind": "query",
-                        "name": "ip",
-                        "orig": "ip",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "8.8.8.8",
+                        "k": "query",
+                        "n": "ip",
+                        "or": "ip",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /ip",
-                    "json": "{\"operationId\":\"getIpInfo\",\"parameters\":[{\"description\":\"The IP address to lookup (IPv4 or IPv6). If not provided, returns information about the requesting client's IP address.\",\"in\":\"query\",\"name\":\"ip\",\"required\":false,\"schema\":{\"example\":\"8.8.8.8\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"asn\":{\"description\":\"Autonomous System Number\",\"example\":\"AS15169\",\"type\":\"string\"},\"city\":{\"description\":\"City name\",\"example\":\"Mountain View\",\"type\":\"string\"},\"country\":{\"description\":\"Country name\",\"example\":\"United States\",\"type\":\"string\"},\"country_code\":{\"description\":\"ISO country code\",\"example\":\"US\",\"type\":\"string\"},\"ip\":{\"description\":\"The IP address\",\"example\":\"8.8.8.8\",\"type\":\"string\"},\"isp\":{\"description\":\"Internet Service Provider\",\"example\":\"Google LLC\",\"type\":\"string\"},\"latitude\":{\"description\":\"Latitude coordinate\",\"example\":37.386,\"format\":\"float\",\"type\":\"number\"},\"longitude\":{\"description\":\"Longitude coordinate\",\"example\":-122.0838,\"format\":\"float\",\"type\":\"number\"},\"organization\":{\"description\":\"Organization name\",\"example\":\"Google LLC\",\"type\":\"string\"},\"region\":{\"description\":\"Region or state\",\"example\":\"California\",\"type\":\"string\"},\"timezone\":{\"description\":\"Timezone identifier\",\"example\":\"America/Los_Angeles\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with IP address information\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Invalid IP address format\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Bad request - Invalid IP address format\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"IP address not found\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"IP address not found\"},\"429\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Rate limit exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Too many requests - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/ip",
-                  "segments": [
-                    {
-                      "lit": "ip"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/ip",
+                  "q": {
                     "exist": [
                       "ip"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "ip"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -580,17 +657,17 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "ipn_ref01",
                 "srcdatavar": "ipn_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "m": {},
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

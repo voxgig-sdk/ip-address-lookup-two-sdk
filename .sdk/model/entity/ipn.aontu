@@ -1,0 +1,135 @@
+# Entity: ipn
+
+main: kit: entity: ipn: {
+
+  alias: field: {}
+
+  fields: {
+    asn: {
+      h: "Asn"
+      n: "asn"
+      r: false
+      sh: "Autonomous System Number"
+      t: "`$STRING`"
+    }
+    city: {
+      h: "City"
+      n: "city"
+      r: false
+      sh: "City name"
+      t: "`$STRING`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: false
+      sh: "Country name"
+      t: "`$STRING`"
+    }
+    country_code: {
+      h: "Country Code"
+      n: "country_code"
+      r: false
+      sh: "ISO country code"
+      t: "`$STRING`"
+    }
+    ip: {
+      h: "Ip"
+      n: "ip"
+      r: false
+      sh: "The IP address"
+      t: "`$STRING`"
+    }
+    isp: {
+      h: "Isp"
+      n: "isp"
+      r: false
+      sh: "Internet Service Provider"
+      t: "`$STRING`"
+    }
+    latitude: {
+      fo: "float"
+      h: "Latitude"
+      n: "latitude"
+      r: false
+      sh: "Latitude coordinate"
+      t: "`$NUMBER`"
+    }
+    longitude: {
+      fo: "float"
+      h: "Longitude"
+      n: "longitude"
+      r: false
+      sh: "Longitude coordinate"
+      t: "`$NUMBER`"
+    }
+    organization: {
+      h: "Organization"
+      n: "organization"
+      r: false
+      sh: "Organization name"
+      t: "`$STRING`"
+    }
+    region: {
+      h: "Region"
+      n: "region"
+      r: false
+      sh: "Region or state"
+      t: "`$STRING`"
+    }
+    timezone: {
+      h: "Timezone"
+      n: "timezone"
+      r: false
+      sh: "Timezone identifier"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "ipn"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /ip"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "8.8.8.8"
+                k: "query"
+                n: "ip"
+                or: "ip"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/ip"
+          q: {
+            exist: [
+              "ip"
+            ]
+          }
+          s: [
+            {
+              lit: "ip"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

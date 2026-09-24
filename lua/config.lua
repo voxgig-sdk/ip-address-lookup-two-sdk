@@ -87,60 +87,71 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "asn",
-            ["short"] = "Autonomous System Number",
+            ["title"] = "Asn",
             ["type"] = "`$STRING`",
+            ["short"] = "Autonomous System Number",
           },
           {
             ["name"] = "city",
-            ["short"] = "City name",
+            ["title"] = "City",
             ["type"] = "`$STRING`",
+            ["short"] = "City name",
           },
           {
             ["name"] = "country",
-            ["short"] = "Country name",
+            ["title"] = "Country",
             ["type"] = "`$STRING`",
+            ["short"] = "Country name",
           },
           {
             ["name"] = "country_code",
-            ["short"] = "ISO country code",
+            ["title"] = "Country Code",
             ["type"] = "`$STRING`",
+            ["short"] = "ISO country code",
           },
           {
             ["name"] = "ip",
-            ["short"] = "The IP address",
+            ["title"] = "Ip",
             ["type"] = "`$STRING`",
+            ["short"] = "The IP address",
           },
           {
             ["name"] = "isp",
-            ["short"] = "Internet Service Provider",
+            ["title"] = "Isp",
             ["type"] = "`$STRING`",
+            ["short"] = "Internet Service Provider",
           },
           {
-            ["format"] = "float",
             ["name"] = "latitude",
-            ["short"] = "Latitude coordinate",
+            ["title"] = "Latitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Latitude coordinate",
+            ["format"] = "float",
           },
           {
-            ["format"] = "float",
             ["name"] = "longitude",
-            ["short"] = "Longitude coordinate",
+            ["title"] = "Longitude",
             ["type"] = "`$NUMBER`",
+            ["short"] = "Longitude coordinate",
+            ["format"] = "float",
           },
           {
             ["name"] = "organization",
-            ["short"] = "Organization name",
+            ["title"] = "Organization",
             ["type"] = "`$STRING`",
+            ["short"] = "Organization name",
           },
           {
             ["name"] = "region",
-            ["short"] = "Region or state",
+            ["title"] = "Region",
             ["type"] = "`$STRING`",
+            ["short"] = "Region or state",
           },
           {
             ["name"] = "timezone",
-            ["short"] = "Timezone identifier",
+            ["title"] = "Timezone",
             ["type"] = "`$STRING`",
+            ["short"] = "Timezone identifier",
           },
         },
         ["name"] = "ipn",
@@ -150,17 +161,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["example"] = "8.8.8.8",
-                      ["kind"] = "query",
-                      ["name"] = "ip",
-                      ["orig"] = "ip",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/ip",
@@ -169,17 +169,29 @@ local function make_config()
                     ["lit"] = "ip",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "ip",
-                  },
+                ["parts"] = {
+                  "ip",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "ip",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "ip",
+                      ["orig"] = "ip",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                      ["example"] = "8.8.8.8",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "ip",
+                  },
                 },
               },
             },

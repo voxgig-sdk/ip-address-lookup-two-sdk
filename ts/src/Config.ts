@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,60 +132,71 @@ class Config {
       "fields": [
         {
           "name": "asn",
-          "short": "Autonomous System Number",
-          "type": "`$STRING`"
+          "title": "Asn",
+          "type": "`$STRING`",
+          "short": "Autonomous System Number"
         },
         {
           "name": "city",
-          "short": "City name",
-          "type": "`$STRING`"
+          "title": "City",
+          "type": "`$STRING`",
+          "short": "City name"
         },
         {
           "name": "country",
-          "short": "Country name",
-          "type": "`$STRING`"
+          "title": "Country",
+          "type": "`$STRING`",
+          "short": "Country name"
         },
         {
           "name": "country_code",
-          "short": "ISO country code",
-          "type": "`$STRING`"
+          "title": "Country Code",
+          "type": "`$STRING`",
+          "short": "ISO country code"
         },
         {
           "name": "ip",
-          "short": "The IP address",
-          "type": "`$STRING`"
+          "title": "Ip",
+          "type": "`$STRING`",
+          "short": "The IP address"
         },
         {
           "name": "isp",
-          "short": "Internet Service Provider",
-          "type": "`$STRING`"
+          "title": "Isp",
+          "type": "`$STRING`",
+          "short": "Internet Service Provider"
         },
         {
-          "format": "float",
           "name": "latitude",
+          "title": "Latitude",
+          "type": "`$NUMBER`",
           "short": "Latitude coordinate",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
-          "format": "float",
           "name": "longitude",
+          "title": "Longitude",
+          "type": "`$NUMBER`",
           "short": "Longitude coordinate",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "organization",
-          "short": "Organization name",
-          "type": "`$STRING`"
+          "title": "Organization",
+          "type": "`$STRING`",
+          "short": "Organization name"
         },
         {
           "name": "region",
-          "short": "Region or state",
-          "type": "`$STRING`"
+          "title": "Region",
+          "type": "`$STRING`",
+          "short": "Region or state"
         },
         {
           "name": "timezone",
-          "short": "Timezone identifier",
-          "type": "`$STRING`"
+          "title": "Timezone",
+          "type": "`$STRING`",
+          "short": "Timezone identifier"
         }
       ],
       "name": "ipn",
@@ -202,17 +206,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "8.8.8.8",
-                    "kind": "query",
-                    "name": "ip",
-                    "orig": "ip",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/ip",
@@ -221,18 +214,30 @@ class Config {
                   "lit": "ip"
                 }
               ],
-              "select": {
-                "exist": [
-                  "ip"
-                ]
-              },
+              "parts": [
+                "ip"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "ip"
-              ]
+              "args": {
+                "query": [
+                  {
+                    "name": "ip",
+                    "orig": "ip",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "8.8.8.8"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "ip"
+                ]
+              }
             }
           ]
         }
